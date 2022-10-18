@@ -5,9 +5,23 @@ class Experience extends Component {
     return (
       <div>
         <h1>Experience</h1>
-        <input type="text" placeholder="job title" />
-        <input type="text" placeholder="employer" />
-        <input type="text" placeholder="resposibilities" />
+        <input
+          type="text"
+          placeholder="job title"
+          name="jobTitle"
+          onChange={(e) => this.props.change(e.target)}
+        />
+        <input
+          type="text"
+          placeholder="employer"
+          name="employer"
+          onChange={(e) => this.props.change(e.target)}
+        />
+        <input
+          type="text"
+          placeholder="resposibilities"
+          onChange={(e) => this.props.change(e.target)}
+        />
         <label htmlFor="from">From:</label>
         <input
           type="date"

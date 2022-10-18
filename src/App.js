@@ -11,6 +11,7 @@ class App extends Component {
     };
     this.changePersonalInfo = this.changePersonalInfo.bind(this);
     this.changeEducation = this.changeEducation.bind(this);
+    this.changeExperience = this.changeExperience.bind(this);
   }
   changePersonalInfo = (target) => {
     this.setState((prevState) => {
@@ -34,6 +35,18 @@ class App extends Component {
     });
     console.log(this.state);
   };
+  changeExperience = (target) => {
+    this.setState((prevState) => {
+      return {
+        experience: {
+          ...prevState.experience,
+          [target.name]: target.value,
+        },
+      };
+    });
+    console.log(this.state);
+  };
+
   render() {
     return (
       <div className="App">
@@ -43,6 +56,7 @@ class App extends Component {
           experience={this.state.experience}
           changePI={this.changePersonalInfo}
           changeE={this.changeEducation}
+          changeEx={this.changeExperience}
         ></InputForm>
       </div>
     );
