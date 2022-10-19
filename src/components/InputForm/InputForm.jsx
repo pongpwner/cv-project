@@ -2,16 +2,37 @@ import React, { Component } from "react";
 import GeneralInfo from "../GeneralInfo/GeneralInfo";
 import Education from "../Education/Education";
 import Experience from "../Experience/Experience";
-
+//import { ReactDOM } from "react";
+//import ReactDOM from 'react-dom/client';
+import ReactDOM from "react-dom";
+import Cv from "../Cv/Cv";
 class InputForm extends Component {
   // constructor(props) {
   //   super(props);
   //   this.state = {};
   // }
 
+  // createCv = (e) => {
+  //   e.preventDefault();
+  //   console.log("submit");
+  //   ReactDOM.createPortal(
+  //     <Cv
+  //       personalInfo={this.props.personalInfo}
+  //       education={this.props.education}
+  //       experience={this.props.experience}
+  //     ></Cv>,
+  //     document.getElementById("root")
+  //   );
+  //   //console.log("submiteee");
+  // };
+
   render() {
     return (
-      <form action="/" className="input-form">
+      <form
+        action="/"
+        className="input-form"
+        onSubmit={(e) => this.props.toggleCV(e)}
+      >
         <GeneralInfo change={this.props.changePI}></GeneralInfo>
         {this.props.education.map((edu) => {
           return (

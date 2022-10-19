@@ -20,6 +20,7 @@ class Experience extends Component {
         <input
           type="text"
           placeholder="resposibilities"
+          name="resposibilities"
           onChange={(e) => this.props.change(e.target, this.props.id)}
         />
         <label htmlFor="from">From:</label>

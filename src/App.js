@@ -1,10 +1,12 @@
 import "./App.css";
 import React, { Component } from "react";
 import InputForm from "./components/InputForm/InputForm";
+import Cv from "./components/Cv/Cv";
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      showCV: false,
       personalInfo: {},
       education: [{ id: 0 }],
       experience: [{ id: 0 }],
@@ -13,6 +15,10 @@ class App extends Component {
     this.changeEducation = this.changeEducation.bind(this);
     this.changeExperience = this.changeExperience.bind(this);
   }
+  toggleCV = (e) => {
+    e.preventDefault();
+    this.setState({ showCV: !this.state.showCV });
+  };
   addEducation = () => {
     //need new way to generate id to prevent collision when deleteing and adding new ids
     console.log("add ed");
@@ -80,6 +86,7 @@ class App extends Component {
     return (
       <div className="App">
         <InputForm
+          toggleCV={this.toggleCV}
           personalInfo={this.state.personalInfo}
           education={this.state.education}
           experience={this.state.experience}
@@ -91,6 +98,12 @@ class App extends Component {
           deleteEducation={this.deleteEducation}
           deleteExperience={this.deleteExperience}
         ></InputForm>
+        <Cv
+          showCV={this.state.showCV}
+          personalInfo={this.state.personalInfo}
+          education={this.state.education}
+          experience={this.state.experience}
+        ></Cv>
       </div>
     );
   }
