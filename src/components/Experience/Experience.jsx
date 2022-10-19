@@ -38,9 +38,19 @@ class Experience extends Component {
           name="dateToE"
           onChange={(e) => this.props.change(e.target, this.props.id)}
         />
-        <button type="button" onClick={this.props.add}>
-          Add Experience
-        </button>
+        {this.props.id ===
+        this.props.experience[this.props.experience.length - 1].id ? (
+          <button type="button" onClick={this.props.add}>
+            Add Experience
+          </button>
+        ) : (
+          <button
+            onClick={() => this.props.delete(this.props.id)}
+            type="button"
+          >
+            Delete
+          </button>
+        )}
       </div>
     );
   }

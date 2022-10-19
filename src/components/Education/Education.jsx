@@ -33,9 +33,19 @@ class Education extends Component {
           name="dateTo"
           onChange={(e) => this.props.change(e.target, this.props.id)}
         />
-        <button type="button" onClick={this.props.add}>
-          Add Education
-        </button>
+        {this.props.id ===
+        this.props.education[this.props.education.length - 1].id ? (
+          <button type="button" onClick={this.props.add}>
+            Add Education
+          </button>
+        ) : (
+          <button
+            onClick={() => this.props.delete(this.props.id)}
+            type="button"
+          >
+            Delete
+          </button>
+        )}
       </div>
     );
   }

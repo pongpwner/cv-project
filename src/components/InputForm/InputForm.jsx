@@ -20,6 +20,8 @@ class InputForm extends Component {
               id={edu.id}
               change={this.props.changeE}
               add={this.props.addEdu}
+              education={this.props.education}
+              delete={this.props.deleteEducation}
             ></Education>
           );
         })}
@@ -29,6 +31,8 @@ class InputForm extends Component {
             <Experience
               key={ex.id}
               id={ex.id}
+              experience={this.props.experience}
+              delete={this.props.deleteExperience}
               change={this.props.changeEx}
               add={this.props.addEx}
             ></Experience>

@@ -14,6 +14,7 @@ class App extends Component {
     this.changeExperience = this.changeExperience.bind(this);
   }
   addEducation = () => {
+    //need new way to generate id to prevent collision when deleteing and adding new ids
     console.log("add ed");
     this.setState((prevState) => ({
       education: [...prevState.education, { id: prevState.education.length }],
@@ -60,6 +61,20 @@ class App extends Component {
     console.log(this.state.experience);
     this.setState({ experience: exCopy });
   };
+  deleteEducation = (id) => {
+    console.log(id);
+    let eduFiltered = this.state.education.filter((edu) => edu.id !== id);
+    this.setState({ education: eduFiltered });
+
+    console.log(this.state.education);
+  };
+  deleteExperience = (id) => {
+    console.log(id);
+    let exFiltered = this.state.experience.filter((ex) => ex.id !== id);
+    this.setState({ experience: exFiltered });
+
+    console.log(this.state.experience);
+  };
 
   render() {
     return (
@@ -73,6 +88,8 @@ class App extends Component {
           changeEx={this.changeExperience}
           addEdu={this.addEducation}
           addEx={this.addExperience}
+          deleteEducation={this.deleteEducation}
+          deleteExperience={this.deleteExperience}
         ></InputForm>
       </div>
     );
