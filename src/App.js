@@ -7,17 +7,28 @@ class App extends Component {
     this.state = {
       personalInfo: {},
       education: [{ id: 0 }],
-      experience: {},
+      experience: [{ id: 0 }],
     };
     this.changePersonalInfo = this.changePersonalInfo.bind(this);
     this.changeEducation = this.changeEducation.bind(this);
     this.changeExperience = this.changeExperience.bind(this);
   }
   addEducation = () => {
-    console.log("add");
+    console.log("add ed");
     this.setState((prevState) => ({
       education: [...prevState.education, { id: prevState.education.length }],
     }));
+    console.log(this.state);
+  };
+  addExperience = () => {
+    console.log("add ex");
+    this.setState((prevState) => ({
+      experience: [
+        ...prevState.experience,
+        { id: prevState.experience.length },
+      ],
+    }));
+    console.log(this.state);
   };
 
   changePersonalInfo = (target) => {
@@ -41,15 +52,13 @@ class App extends Component {
     console.log(this.state.education);
     this.setState({ education: eduCopy });
   };
-  changeExperience = (target) => {
-    this.setState((prevState) => {
-      return {
-        experience: {
-          ...prevState.experience,
-          [target.name]: target.value,
-        },
-      };
-    });
+  changeExperience = (target, id) => {
+    let exCopy = this.state.experience;
+    let item = { ...exCopy[id] };
+    item[target.name] = target.value;
+    exCopy[id] = item;
+    console.log(this.state.experience);
+    this.setState({ experience: exCopy });
   };
 
   render() {
@@ -63,6 +72,7 @@ class App extends Component {
           changeE={this.changeEducation}
           changeEx={this.changeExperience}
           addEdu={this.addEducation}
+          addEx={this.addExperience}
         ></InputForm>
       </div>
     );

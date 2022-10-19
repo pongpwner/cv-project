@@ -24,7 +24,17 @@ class InputForm extends Component {
           );
         })}
 
-        <Experience change={this.props.changeEx}></Experience>
+        {this.props.experience.map((ex) => {
+          return (
+            <Experience
+              key={ex.id}
+              id={ex.id}
+              change={this.props.changeEx}
+              add={this.props.addEx}
+            ></Experience>
+          );
+        })}
+
         <button type="submit"> Create CV</button>
       </form>
     );
