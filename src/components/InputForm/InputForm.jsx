@@ -7,25 +7,6 @@ import Experience from "../Experience/Experience";
 import ReactDOM from "react-dom";
 import Cv from "../Cv/Cv";
 class InputForm extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {};
-  // }
-
-  // createCv = (e) => {
-  //   e.preventDefault();
-  //   console.log("submit");
-  //   ReactDOM.createPortal(
-  //     <Cv
-  //       personalInfo={this.props.personalInfo}
-  //       education={this.props.education}
-  //       experience={this.props.experience}
-  //     ></Cv>,
-  //     document.getElementById("root")
-  //   );
-  //   //console.log("submiteee");
-  // };
-
   render() {
     return (
       <form
